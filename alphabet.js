@@ -14,6 +14,7 @@ function Alphabet(options) {
 Alphabet.prototype = Object.create(stream.Readable.prototype);
 Alphabet.prototype.constructor = Alphabet;
 
+// _read method is called whenever data is required from the Readable
 Alphabet.prototype._read = function() {
     var letter = String.fromCharCode(this._curr);
     var buf = new Buffer(letter, 'utf8');
