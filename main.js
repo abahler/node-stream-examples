@@ -1,4 +1,5 @@
 // main.js: Consumer of the readable implementation
+// As the convention 'main' implies, this is the procedural code.
 
 var Alphabet = require('./alphabet');
 var Cache = require('./cache');

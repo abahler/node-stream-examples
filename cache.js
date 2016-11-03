@@ -1,4 +1,4 @@
-// cache.js: Implementation of Writeable interface
+// cache.js: Implementation of the Writeable interface
 // Creates a simple in-memory cache
 
 var stream = require('stream');

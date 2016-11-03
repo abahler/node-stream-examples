@@ -1,4 +1,5 @@
 // alphabet.js: Implementation of the Readable interface
+// Creates source data by emitting each letter of the alphabet
 
 var stream = require('stream');
 
