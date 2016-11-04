@@ -7,8 +7,11 @@ var alpha = new Alphabet();
 var cache = new Cache('alpha1');    // 'alpha1' = key that identifies data to be written into the stream
                                     // This will allow us to later retrieve data from Cache.store object
                                     // (which is shared between all Cache objects)
+var cache2 = new Cache('foo');
+var cache3 = new Cache('bar');
 
-// Pipe data from the alphabet stream into the cache
+// Pipe data from the alphabet stream into the cache.
+// This is where the action happens.
 alpha.pipe(cache);
 
 cache.on('finish', function() {

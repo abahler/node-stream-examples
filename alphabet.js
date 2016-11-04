@@ -8,7 +8,7 @@ function Alphabet(options) {
     stream.Readable.call(this, options);
     this._start = 'a';
     this._end = 'z';
-    this._curr = this._start.charCodeAt(0);
+    this._curr = this._start.charCodeAt(0); // Take _start ('a') and get the ASCII code which is 97.
 }
 
 Alphabet.prototype = Object.create(stream.Readable.prototype);
@@ -19,8 +19,9 @@ Alphabet.prototype._read = function() {
     var letter = String.fromCharCode(this._curr);
     var buf = new Buffer(letter, 'utf8');
     this.push(buf);     // This will trigger the `data` event
-    this._curr++;
+    this._curr++;       // Increase to 98, then 99, then 100...
     if (letter === this._end) {
+        // Tell the buffer that the data has ended
         this.push(null);
     }
 };
