@@ -11,7 +11,10 @@ function Alphabet(options) {
     this._curr = this._start.charCodeAt(0); // Take _start ('a') and get the ASCII code which is 97.
 }
 
+// Sets Alphabet.prototype to the obj, but loses correct context of 'this'
 Alphabet.prototype = Object.create(stream.Readable.prototype);
+
+// Sets constructor back to alphabet
 Alphabet.prototype.constructor = Alphabet;
 
 // _read method is called whenever data is required from the Readable
