@@ -1,5 +1,5 @@
 // tryIt.js:
-// Procedural code that implements the custom streams Name, Transform, and Logger
+// Procedural code that implements the custom streams NumberGen, Divisible, and Logger
 // TODO: include Transform module and create instance. 
 //       For now, just make sure the Readable and Writable streams work by piping the former to the latter
 
