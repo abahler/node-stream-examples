@@ -1,12 +1,12 @@
 // transformer.js
 // From "Try It!" section: an example of a Transform stream
-// Keeps only the numbers that are divisible by `n`
+// Keeps only the numbers that are divisible by `d`
 
 var stream = require('stream');
 
-function Transformer(n) {
+function Transformer(d) {
     // > Get list of numbers from Number
-    // If number % 3 === 0, add to buffer. Else, nothing.
+    // If number % d === 0, add to buffer. Else, nothing.
 }
 
 module.exports = Transformer;
