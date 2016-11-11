@@ -10,7 +10,7 @@ function Logger(options) {
     this.on('finish', function() {
         // Only log the full list when it is finished writing, 
         // so a user doesn't try to grab an incomplete list
-        console.log(this._value);
+        Logger.store.push(this._value);
     });
 }
 
