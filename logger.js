@@ -22,11 +22,8 @@ Logger.prototype._write = function(chunk, encoding, callback) {
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
         this._value = chunk;
     } else {    // Otherwise, add chunk onto the end of `_value`
-        // Note the use of concat(), because += would coerce the value into a String
         this._value = Buffer.concat([this._value, chunk]);
     }
-    // Nothing passed into callback means it was a successful write. 
-    // If error object is passed in, then error event on the stream will be triggered
     callback();
 };
 
