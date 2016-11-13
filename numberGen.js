@@ -1,6 +1,6 @@
 // number.js
 // From "Try It!" section: an example of a Readable stream
-// It generates a list of `n` random numbers, to be provided to a Transform stream
+// It generates a list of `size` random numbers, to be provided to a Transform stream
 
 var stream = require('stream');
 
