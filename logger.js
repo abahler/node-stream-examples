@@ -18,9 +18,7 @@ Logger.store = [];   // Exists outside of any single lowercase-c `Logger` object
 Logger.prototype = Object.create(stream.Writable.prototype);
 Logger.prototype.constructor = Logger;
 
-// The _write method is called when data is supplied to the stream
-// `chunk` is the actual data. `encoding` only needs to be passed as a 2nd arg if chunk is a String
-Logger.prototype._write = function(chunk, callback) {
+Logger.prototype._write = function(chunk, encoding, callback) {
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
         this._value = chunk;
     } else {    // Otherwise, add chunk onto the end of `_value`

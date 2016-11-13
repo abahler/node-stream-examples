@@ -20,8 +20,8 @@ NumberGen.prototype._read = function() {
     var randomNum = Math.round((Math.random() * 100) + 1);
     var bufInit = new Buffer(randomNum);  // When passing a # as the first argument, 
                                           //   you need to pass size of buffer. 101 = 100 plus null value
-    // var buf = Buffer.from(bufInit); // The `new Buffer` syntax is deprecated, and you should use Buffer.from
-    this.push(bufInit);
+    var buf = Buffer.from(bufInit); // The `new Buffer` syntax is deprecated, and you should use Buffer.from
+    this.push(buf);
     this.index++;
     if (this.index === this.size) {
         // Indicate data has ended
