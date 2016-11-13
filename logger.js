@@ -1,6 +1,6 @@
 // logger.js 
 // From "Try It!" section: an example of a Writable stream
-// Logs buffer to console (once this is working, have it write to a file to demonstrate knowledge of 'fs' module)
+// Logs buffer to console (once this is working, have it write to a file)
 
 var stream = require('stream');
 
@@ -19,8 +19,8 @@ Logger.prototype = Object.create(stream.Writable.prototype);
 Logger.prototype.constructor = Logger;
 
 // The _write method is called when data is supplied to the stream
-// `chunk` is the actual data. `encoding` only needs to be passed if chunk is a String
-Logger.prototype._write = function(chunk, encoding, callback) {
+// `chunk` is the actual data. `encoding` only needs to be passed as a 2nd arg if chunk is a String
+Logger.prototype._write = function(chunk, callback) {
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
         this._value = chunk;
     } else {    // Otherwise, add chunk onto the end of `_value`
