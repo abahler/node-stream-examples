@@ -17,16 +17,23 @@ NumberGen.prototype.constructor = NumberGen;
 
 // _read method is called whenever data is required from the Readable
 NumberGen.prototype._read = function() {
-    var randomNum = Math.round((Math.random() * 100) + 1);
-    var bufInit = new Buffer(randomNum);  // When passing a # as the first argument, 
-                                          //   you need to pass size of buffer. 101 = 100 plus null value
-    var buf = Buffer.from(bufInit); // The `new Buffer` syntax is deprecated, and you should use Buffer.from
+    var buf = Buffer.alloc(this.size);
+    // buf.writeInt8(randomNum, this.index);
+    // TODO: think about replacing for-loop with a map() or forEach() call
+    //   (might not be appropriate since you're not doing something to each item in an existing array)
+    for (var i = 0; i < this.size; i++) {
+        var randomNum = Math.round((Math.random() * 100) + 1);  // Generate a number between 0 and 100
+        buf.writeInt8(randomNum, i);
+    }
     this.push(buf);
-    this.index++;
+    // this.push(buf);
+    // this.index++;
+    /*
     if (this.index === this.size) {
         // Indicate data has ended
         this.push(null);
-    }
+    }*/
+    this.push(null);
 };
 
 module.exports = NumberGen;
