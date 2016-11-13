@@ -9,4 +9,4 @@ function DivisibleBy(d) {
     // If number % d === 0, add to buffer. Else, nothing.
 }
 
-module.exports = Transformer;
+module.exports = DivisibleBy;
