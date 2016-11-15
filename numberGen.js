@@ -17,22 +17,17 @@ NumberGen.prototype.constructor = NumberGen;
 
 // _read method is called whenever data is required from the Readable
 NumberGen.prototype._read = function() {
-    var buf = Buffer.alloc(this.size);
-    // buf.writeInt8(randomNum, this.index);
-    // TODO: think about replacing for-loop with a map() or forEach() call
-    //   (might not be appropriate since you're not doing something to each item in an existing array)
+    var buf = Buffer.alloc(this.size, 0, 'utf8');
+
     for (var i = 0; i < this.size; i++) {
         var randomNum = Math.round((Math.random() * 100) + 1);  // Generate a number between 0 and 100
-        buf.writeInt8(randomNum, i);
+        randomNum = randomNum.toString();   // buf.write needs a string
+        buf.write(randomNum, i);  
+        
+        this.index++;
     }
+    
     this.push(buf);
-    // this.push(buf);
-    // this.index++;
-    /*
-    if (this.index === this.size) {
-        // Indicate data has ended
-        this.push(null);
-    }*/
     this.push(null);
 };
 
