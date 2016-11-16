@@ -18,7 +18,8 @@ DivisibleBy.prototype.constructor = DivisibleBy;
 
 // Must implement the _transform() method
 DivisibleBy.prototype._transform = function(chunk, encoding, callback) {
-    // Get list of numbers from Number
+    // TODO: Get list of numbers from the Buffer passed from the Readable
+    
     // For each `n` number in Buffer: if n % d === 0, add to buffer.
     if (this.value % this.d === 0) {
         if (!this._value) {
