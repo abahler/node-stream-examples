@@ -18,11 +18,13 @@ NumberGen.prototype.constructor = NumberGen;
 // _read method is called whenever data is required from the Readable
 NumberGen.prototype._read = function() {
     var buf = Buffer.alloc(this.size, 0, 'utf8');
+    console.log('Buf: ', buf);
 
     for (var i = 0; i < this.size; i++) {
         var randomNum = Math.round((Math.random() * 100) + 1);  // Generate a number between 0 and 100
         randomNum = randomNum.toString();   // buf.write needs a string
-        buf.write(randomNum, i);  
+        buf.write(randomNum, i);
+        console.log('Random number: ', randomNum);
         
         this.index++;
     }

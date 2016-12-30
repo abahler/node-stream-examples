@@ -1,6 +1,35 @@
 // tryIt.js:
 // Procedural code that implements the custom streams NumberGen, DivisibleBy, and Logger
 
+// console.log(global);
+"use strict";
+
+var Person = {
+    age: 30,
+    name: 'Something'
+};
+
+var bob = Object.create(Person);
+
+var firstOne = 'something';
+var secondOne = 'neww';
+Person = {firstOne, secondOne};
+console.log(Person);
+
+// Add a new method for all Person objects
+// Person.prototype.newMethod = function(foo){
+//     console.log("Do something with " + foo);
+// };
+
+var arr = ['moe', 'larry', 'curly'];
+var [a, b] = arr;
+console.log(a);
+console.log(b);
+
+// Can set default values if you use a function constructor (`function Person()`)
+
+/*
+
 var NumberGen = require('./numberGen');
 var DivisibleBy = require('./divisibleBy');
 var Logger = require('./logger');
@@ -8,13 +37,11 @@ var numGen = new NumberGen(101);    // As with NumberGen's Buffer instance, you 
 var divvy = new DivisibleBy(4); 
 var logger = new Logger();
 
-// Pipe data from the number generator stream into the logger.
-// TODO: for now, just pipe it from the Readable to the Writable, but later, you need to implement a Transform stream
+// numGen.pipe(divvy).pipe(logger);
 numGen.pipe(logger);
-// Something like: numGen.pipe(divvy.filterByModulo()).pipe(logger);
 
 logger.on('finish', function() {
     console.log('Logger store: ');
     console.log(Logger.store);
-    // TODO: when rewriting Logger to log to a file, print a message that confirms the file was written to
 });
+*/
