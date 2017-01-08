@@ -15,4 +15,3 @@ logger.on('finish', function() {
     console.log('Logger store: ');
     console.log(Logger.store);
 });
-*/
