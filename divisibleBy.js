@@ -20,11 +20,14 @@ DivisibleBy.prototype._transform = function(chunk, encoding, callback) {
     console.log('Chunk:', chunk);
     // For each `n` number in Buffer: if n % d === 0, add to buffer.
     if (this.value % this.d === 0) {
+        /*
         if (!this._value) {
             this._value = chunk;
         } else {    
             this._value = Buffer.concat([this._value, chunk]);
         }
+        */
+        this.push(chunk);
     }
     callback();
 };
