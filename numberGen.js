@@ -30,9 +30,12 @@ NumberGen.prototype._read = function() {
         
         this.index++;
     }
+    
     console.log('arrOfRandoms: ', arrOfRandoms);
     var randomStr = arrOfRandoms.join(',');
-    buf.write(randomStr, i);
+    // console.log('randomStr: ', randomStr);                   // Shows we get the intended string
+    // console.log('randomStr data type: ', typeof randomStr);  // "string"
+    buf.write(randomStr, i);     // buf.write() takes string as its first argument
     this.push(buf);
     this.push(null);
 };
