@@ -20,15 +20,19 @@ NumberGen.prototype._read = function() {
     var buf = Buffer.alloc(this.size, 0, 'utf8');
     console.log('Buf: ', buf);
 
+    var arrOfRandoms = [];
     for (var i = 0; i < this.size; i++) {
         var randomNum = Math.round((Math.random() * 100) + 1);  // Generate a number between 0 and 100
-        randomNum = randomNum.toString();   // buf.write needs a string
-        buf.write(randomNum, i);
+        // randomNum = randomNum.toString() + ',';   // buf.write needs a string
+        arrOfRandoms.push(randomNum);
+        
         console.log('Random number: ', randomNum);
         
         this.index++;
     }
-    
+    console.log('arrOfRandoms: ', arrOfRandoms);
+    var randomStr = arrOfRandoms.join(',');
+    buf.write(randomStr, i);
     this.push(buf);
     this.push(null);
 };

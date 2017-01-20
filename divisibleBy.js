@@ -8,7 +8,7 @@ var stream = require('stream');
 function DivisibleBy(d) {
     stream.Transform.call(this, d);
     this.d = d;
-    this._value = null;     // Holds value of current number
+    this._value = '';     // Holds value of current number
 }
 
 DivisibleBy.prototype = Object.create(stream.Transform.prototype);
@@ -16,20 +16,24 @@ DivisibleBy.prototype.constructor = DivisibleBy;
 
 // Must implement the _transform() method
 DivisibleBy.prototype._transform = function(chunk, encoding, callback) {
-    // TODO: Get list of numbers from the Buffer passed from the Readable
-    //  How many numbers are passed per chunk? This code shouldn't have to know that, right?
-    console.log('Chunk:', chunk);
-    // For each `n` number in Buffer: if n % d === 0, add to buffer.
-    if (this.value % this.d === 0) {
-        /*
-        if (!this._value) {
-            this._value = chunk;
-        } else {    
-            this._value = Buffer.concat([this._value, chunk]);
+
+    console.log('Chunk (before split):', chunk.toString('utf8'));
+    // this._value += chunk.toString('utf8');
+    
+    var arr = chunk.toString('utf8').split(',');
+    console.log('array from chunk: ', arr);
+    arr.forEach( (v,i) => {
+        // For each `n` number in Buffer: if n % d === 0, add to buffer.
+        if ( v && (v % this.d === 0) ) {
+            // this._value = Buffer.concat([this._value, chunk]);
+            
+            console.log('value of `v` (within if inside _transform): ', v);
+            this._value += v;
+            
         }
-        */
-        this.push(chunk);
-    }
+    });
+    console.log('this dot _value (after foreach): ', this._value);
+    this.push(this._value);
     callback();
 };
 

@@ -19,11 +19,15 @@ Logger.prototype = Object.create(stream.Writable.prototype);
 Logger.prototype.constructor = Logger;
 
 Logger.prototype._write = function(chunk, encoding, callback) {
+    console.log("logger chunk", chunk.toString('utf8'));
+   /*
+   
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
         this._value = chunk;
     } else {    // Otherwise, add chunk onto the end of `_value`
+        console.log('this dot value: ', this._value);
         this._value = Buffer.concat([this._value, chunk]);
-    }
+    }*/
     callback();
 };
 
