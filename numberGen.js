@@ -7,7 +7,6 @@ var stream = require('stream');
 function NumberGen(size) {
     stream.Readable.call(this, size);
     this.size = size;
-    this.index = 0;     // Initialize to zero, will increase until `size` is reached
 }
 
 // Sets NumberGen.prototype to the obj, but loses correct context of 'this'
@@ -27,8 +26,6 @@ NumberGen.prototype._read = function() {
         arrOfRandoms.push(randomNum);
         
         console.log('Random number: ', randomNum);
-        
-        this.index++;
     }
     
     console.log('arrOfRandoms: ', arrOfRandoms);
