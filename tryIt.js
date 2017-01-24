@@ -8,8 +8,8 @@ var numGen = new NumberGen(101);    // As with NumberGen's Buffer instance, you 
 var divvy = new DivisibleBy(4); 
 var logger = new Logger();
 
-numGen.pipe(divvy).pipe(logger);
-// numGen.pipe(logger);
+// numGen.pipe(divvy).pipe(logger);
+numGen.pipe(logger);
 
 logger.on('finish', function() {
     console.log('logger dot store: ');
