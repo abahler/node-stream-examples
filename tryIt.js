@@ -12,6 +12,5 @@ var logger = new Logger();
 numGen.pipe(logger);
 
 logger.on('finish', function() {
-    console.log('logger dot store: ');
-    console.log(logger.store);
+    console.log('logger dot store (from tryIt.js): ', logger.store);
 });

@@ -19,7 +19,7 @@ Logger.prototype = Object.create(stream.Writable.prototype);
 Logger.prototype.constructor = Logger;
 
 Logger.prototype._write = function(chunk, encoding, callback) {
-    console.log("logger chunk", chunk.toString('utf8'));
+    console.log("Logger chunk (from logger.js): ", chunk);
    /*
    
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
