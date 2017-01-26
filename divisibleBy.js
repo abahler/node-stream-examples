@@ -18,8 +18,11 @@ DivisibleBy.prototype.constructor = DivisibleBy;
 DivisibleBy.prototype._transform = function(chunk, encoding, callback) {
     // TODO: Get list of numbers from the Buffer passed from the Readable
     //  How many numbers are passed per chunk? This code shouldn't have to know that, right?
-    console.log('Chunk:', chunk);
-    // For each `n` number in Buffer: if n % d === 0, add to buffer.
+    
+    console.log('chunk: ', chunk);
+    var test = JSON.stringify(chunk);
+    console.log('test: ', test);
+
     if (this.value % this.d === 0) {
         /*
         if (!this._value) {
