@@ -9,7 +9,6 @@ var divvy = new DivisibleBy(4);
 var logger = new Logger();
 
 numGen.pipe(divvy).pipe(logger);
-// numGen.pipe(logger);
 
 logger.on('finish', function() {
     console.log('Logger dot store: ', Logger.store);

@@ -18,16 +18,12 @@ Logger.prototype = Object.create(stream.Writable.prototype);
 Logger.prototype.constructor = Logger;
 
 Logger.prototype._write = function(chunk, encoding, callback) {
-    console.log('Chunk (within Logger): ', chunk);
     var jsonChunk = chunk.toJSON();
-    console.log('json chunk (within Logger): ', jsonChunk);
-    
+
     if (!this._value) { // If this is the first iteration of the write, _value will be null (its initial value)
         this._value = jsonChunk.data;
     } 
-    /*else {    // Otherwise, add chunk onto the end of `_value`
-        this._value = Buffer.concat([this._value, chunk]);
-    }*/
+
     callback();
 };
 

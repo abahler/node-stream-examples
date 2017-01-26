@@ -16,23 +16,16 @@ DivisibleBy.prototype.constructor = DivisibleBy;
 
 // Must implement the _transform() method
 DivisibleBy.prototype._transform = function(chunk, encoding, callback) {
-    // TODO: Get list of numbers from the Buffer passed from the Readable
-    //  How many numbers are passed per chunk? This code shouldn't have to know that, right?
     
-    // console.log('chunk: ', chunk);
     var jsonChunk = chunk.toJSON();
-    // console.log('test: ', test);
-    // console.log('test bracket data: ', test['data']);
-    console.log('this dot d: ', this.d);    // Can see this.d === 4
-    var divisor = this.d;
+    var divisor = this.d;   // Need to capture the reference to `this.d` that we won't have within .filter()
     var arrOfRandoms = jsonChunk['data'];
     var filtered = arrOfRandoms.filter(function(v, i){
         if (v % divisor === 0) {
             return v;
         }
     });
-    console.log('filtered: ', filtered);
-    
+
     // Put filtered array back inside buffer
     var buf = new Buffer(filtered);
     this.push(buf);

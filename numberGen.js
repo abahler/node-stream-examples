@@ -21,12 +21,9 @@ NumberGen.prototype._read = function() {
     for (var i = 0; i < this.size; i++) {
         var randomNum = Math.round((Math.random() * 100) + 1);  // Generate a number between 0 and 100
         arrOfRandoms.push(randomNum);
-        // buf.write(randomNum, i);
-        console.log('Random number: ', randomNum);
     }
     
     var buf = new Buffer(arrOfRandoms);
-    // buf.write(randomNum, i);
     this.push(buf);
     this.push(null);
 };
