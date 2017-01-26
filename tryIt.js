@@ -12,6 +12,5 @@ numGen.pipe(divvy).pipe(logger);
 // numGen.pipe(logger);
 
 logger.on('finish', function() {
-    console.log('logger dot store: ');
-    console.log(logger.store);
+    console.log('Logger dot store: ', Logger.store);
 });
