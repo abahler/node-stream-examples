@@ -1,4 +1,3 @@
-// logger.js 
 // From "Try It!" section: an example of a Writable stream
 // Logs buffer to console (once this is working, it will be modified to write to a file)
 

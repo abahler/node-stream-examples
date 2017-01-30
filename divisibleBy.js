@@ -1,4 +1,3 @@
-// divisibleBy.js
 // From "Try It!" section: an example of a Transform stream
 // Keeps only the numbers that are divisible by `d`
 
@@ -8,7 +7,6 @@ var stream = require('stream');
 function DivisibleBy(d) {
     stream.Transform.call(this, d);
     this.d = d;
-    this._value = null;     // Holds value of current number
 }
 
 DivisibleBy.prototype = Object.create(stream.Transform.prototype);

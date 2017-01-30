@@ -1,4 +1,3 @@
-// number.js
 // From "Try It!" section: an example of a Readable stream
 // It generates a list of `size` random numbers, to be provided to a Transform stream
 
@@ -11,7 +10,7 @@ function NumberGen(size) {
 
 // Sets NumberGen.prototype to the obj, but loses correct context of 'this'
 NumberGen.prototype = Object.create(stream.Readable.prototype);
-// Sets constructor back to NumberGen
+// Sets constructor back to NumberGen to reset `this` context
 NumberGen.prototype.constructor = NumberGen;
 
 // _read method is called whenever data is required from the Readable
